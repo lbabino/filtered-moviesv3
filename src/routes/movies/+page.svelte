@@ -49,9 +49,6 @@
 
 <div class="main">
     <GenrePicker genres="{data.genres}" bind:selectedGenres/>
-    {#if loading}
-        <span aria-busy="true"></span>
-    {:else}
     <h4>
         {#if pageNum>1}
         <span class="pager" on:click={()=>{pageNum--}} on:keydown> 👈</span>
@@ -59,6 +56,9 @@
         Page: {pageNum}
         <span class="pager" on:click={()=>{pageNum++}} on:keydown> 👉</span>
     </h4>
+    {#if loading}
+        <span aria-busy="true"></span>
+    {:else}
     <ul>
         {#each movies as movie}
         <li>
