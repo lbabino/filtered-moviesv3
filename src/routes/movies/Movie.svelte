@@ -17,7 +17,7 @@
     alt={movie.title}
 />
 <p>{movie.overview}</p>
-<a href={'/movie/' + movie.id}><i>More details...</i></a>
+<a href={'/movies/' + movie.id}><i>More details...</i></a>
 
 <style>
 </style>
