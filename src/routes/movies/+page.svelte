@@ -59,10 +59,10 @@
     {#if browser}
     <h4>Years ({years[0]+"-"+years[1]})</h4>
     <div class="slider">
-        <RangeSlider on:stop={debounce(()=>fetchMovies(),500)} bind:values={years} range pushy min={1910} max={2023}/>
+        <RangeSlider on:stop={debounce(()=>{pageNum=1;fetchMovies()},500)} bind:values={years} range pushy min={1910} max={2023}/>
     </div>
-    <h4 class="runtime-header">Runtime ({runtimes[0]+"mins."+"-"+runtimes[1]+"mins."})</h4>
-    <i>(Disabled because of broken API)</i>
+    <h4 class="runtime-header">Runtime ({runtimes[0]+"-"+runtimes[1]+" minutes"})</h4>
+    <i class="disabled">(Disabled because of broken API)</i>
     <div class="disabled">
     <RangeSlider disabled bind:values={runtimes} range pushy float min={0} max={500}/>
     </div>
@@ -80,19 +80,23 @@
     {#if loading}
         <span aria-busy="true"></span>
     {:else}
+    {#if movies.length != 0}
         {#each movies as movie}
         <Movie {movie}/> 
         {/each}
+        {:else}
+        <i>No more movies...</i>
+    {/if}
     {/if}
     </ul>
 </div>
 
 <style>
-    i{
+    /* i{
         margin-top:0;
         font-size: 0.7rem;
         filter:brightness(45%)
-    }
+    } */
     .runtime-header{
         margin-bottom:0;
         filter:brightness(30%)
@@ -114,5 +118,8 @@
     }
     .movies{
         text-align: center;
+    }
+    h4{
+        margin-bottom:0.3em;
     }
 </style>
