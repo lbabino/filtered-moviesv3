@@ -24,9 +24,10 @@
     li{
         list-style: none;
         display: inline-block;
-        padding: 1em;
+        padding: 0.5em;
         margin: 0 10px 1em 10px;
         border-radius: 10%;
+        font-size:0.9em;
     }
     li:hover{
         filter: brightness(50%);
