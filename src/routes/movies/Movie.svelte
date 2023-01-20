@@ -6,7 +6,7 @@
 </script>
 
 <h3>
-    <u>{movie.title}</u> ({movie.release_date.slice(0, 4)})({movie.original_language})
+    <u>{movie.title}</u> ({movie.release_date?.slice(0, 4)})({movie.original_language})
 </h3>
 <img
     on:keydown
