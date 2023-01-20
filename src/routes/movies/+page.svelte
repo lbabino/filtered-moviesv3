@@ -3,8 +3,9 @@
 	import type { PageData } from './$types';
 
 	import GenrePicker from './GenrePicker.svelte';
+    import Movie from './Movie.svelte';
 	import { shuffleArray } from './random';
-	import type { Movie, SelectableGenre } from './types';
+	import type { MovieSchema, SelectableGenre } from './types';
     
     let loading = false;
     
@@ -14,7 +15,7 @@
     $: if(browser && selectedGenres){pageNum=1;fetchMovies()}
     $: if(browser && pageNum){fetchMovies()}
 
-    let movies:Movie[] = [];
+    let movies:MovieSchema[] = [];
     //TODO: 'pageNum' nunca debería superar el 'total_pages' que viene de la query
     let pageNum:number = 1;
 
@@ -45,6 +46,9 @@
     .pager:hover{
         cursor: pointer;
     }
+    .movies{
+        text-align: center;
+    }
 </style>
 
 <div class="main">
@@ -59,11 +63,9 @@
     {#if loading}
         <span aria-busy="true"></span>
     {:else}
-    <ul>
+    <ul class="movies">
         {#each movies as movie}
-        <li>
-            {movie.title}
-        </li>    
+        <Movie {movie}/> 
         {/each}
     </ul>
     {/if}
