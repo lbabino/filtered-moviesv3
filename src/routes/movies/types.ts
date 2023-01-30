@@ -47,7 +47,6 @@ export type MovieDetailsSchema = {
 	video: boolean;
 	vote_average: number;
 	vote_count: number;
-    
 };
 
 export type SelectableGenre = Genre & Selectable;
