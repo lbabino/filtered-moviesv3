@@ -1,10 +1,10 @@
-import { apiKey, baseUrl } from "../../../env";
+import { APIKEY, BASEURL } from '$env/static/private';
 import type { RequestHandler } from "./$types";
 
 const ENDPOINT = "discover"
 
 export const GET = (async({url,fetch}) => {
-    const res = await fetch(baseUrl+ENDPOINT+'/movie?api_key='+apiKey+url.search.replace("?","&"));
+    const res = await fetch(BASEURL+ENDPOINT+'/movie?api_key='+APIKEY+url.search.replace("?","&"));
     const data = await res.json();
     const body = JSON.stringify(data)
     

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {baseImgUrl, filesizes} from '../../env'
+    import {PUBLIC_BASEIMGURL, PUBLIC_FILESIZES} from '$env/static/public';
 	import type { MovieSchema } from './types';
 
     export let movie:MovieSchema;
@@ -13,7 +13,7 @@
     loading="lazy"
     width="300px"
     height="450px"
-    src={`${baseImgUrl}/${filesizes[1]}/${movie.poster_path}`}
+    src={`${PUBLIC_BASEIMGURL}/${PUBLIC_FILESIZES.split(",")[1]}/${movie.poster_path}`}
     alt={movie.title}
 />
 <p>{movie.overview}</p>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { baseImgUrl, filesizes } from '../../../env';
+import {PUBLIC_BASEIMGURL, PUBLIC_FILESIZES} from '$env/static/public';
 import type {MovieDetailsSchema} from '../types'
 import type { PageData } from './$types';
 
@@ -17,7 +17,7 @@ function formatMoney(number: number) {
     </div>
     <div class="image-container">
         <img
-        src={`${baseImgUrl}/${filesizes[1]}/${movie.poster_path}`}
+        src={`${PUBLIC_BASEIMGURL}/${PUBLIC_FILESIZES.split(",")[1]}/${movie.poster_path}`}
         alt={movie.title + 'movie poster'}
         />
     </div>
