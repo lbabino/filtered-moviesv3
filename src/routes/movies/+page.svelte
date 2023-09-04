@@ -62,7 +62,7 @@
         <RangeSlider on:stop={debounce(()=>{pageNum=1;fetchMovies()},500)} bind:values={years} range pushy min={1910} max={2023}/>
     </div>
     <h4 class="runtime-header">Runtime ({runtimes[0]+"-"+runtimes[1]+" minutes"})</h4>
-    <i class="disabled">(Disabled because of broken API)</i>
+    <i class="disabled">(Coming soon...)</i>
     <div class="disabled">
     <RangeSlider disabled bind:values={runtimes} range pushy float min={0} max={500}/>
     </div>
@@ -103,12 +103,6 @@
     }
     .disabled{
         filter:brightness(20%)
-    }
-    .slider{
-        cursor:pointer !important;
-    }
-    .slider:hover{
-        cursor:pointer !important;
     }
     .main{
         margin-top:2em;
